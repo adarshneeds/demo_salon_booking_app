@@ -32,7 +32,6 @@ class _DatePickerTextFieldState extends State<DatePickerTextField> {
           pickedTime.minute,
         );
         widget.onDateSelected(dateTime);
-        if (context.mounted) context.read<HomeProvider>().setSelectedDate(dateTime);
       }
     }
   }

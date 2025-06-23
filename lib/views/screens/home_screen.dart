@@ -106,7 +106,7 @@ class HomeScreen extends StatelessWidget {
       }
 
       if (date == null) {
-        Helper.showSnackbar(context, 'Please select a date.');
+        Helper.showSnackbar(context, 'Please select a date and time.');
         return;
       }
 
