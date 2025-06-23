@@ -1,6 +1,6 @@
 # Zency Demo App
 
-This is a basic salon booking demo app built with **Flutter** and **Firebase**, featuring a simple and minimal UI.
+This is a simple salon booking demo app built with **Flutter** and **Firebase**, featuring a simple and minimal UI.
 
 ## Features
 
