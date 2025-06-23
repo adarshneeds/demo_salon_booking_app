@@ -20,4 +20,5 @@ bookings (collection)
 ```
 
 ## Screenshots
-<img src="https://github.com/user-attachments/assets/a661d302-d171-4e8f-b68e-21dcf0043cfe" alt="screenshot" width="400"/>
+<img src="https://github.com/user-attachments/assets/a661d302-d171-4e8f-b68e-21dcf0043cfe" alt="screenshot" height="400"/>
+<img src="https://github.com/user-attachments/assets/0ccd064b-72bb-4d72-b246-099102ffe398" alt="screenshot" height="400"/>
