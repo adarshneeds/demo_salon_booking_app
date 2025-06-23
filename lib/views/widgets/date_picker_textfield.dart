@@ -20,8 +20,20 @@ class _DatePickerTextFieldState extends State<DatePickerTextField> {
       lastDate: DateTime(2101),
     );
 
-    if (pickedDate != null) {
-      widget.onDateSelected(pickedDate);
+    if (pickedDate != null && context.mounted) {
+      TimeOfDay? pickedTime = await showTimePicker(context: context, initialTime: TimeOfDay.now());
+
+      if (pickedTime != null) {
+        final dateTime = DateTime(
+          pickedDate.year,
+          pickedDate.month,
+          pickedDate.day,
+          pickedTime.hour,
+          pickedTime.minute,
+        );
+        widget.onDateSelected(dateTime);
+        if (context.mounted) context.read<HomeProvider>().setSelectedDate(dateTime);
+      }
     }
   }
 
@@ -30,11 +42,14 @@ class _DatePickerTextFieldState extends State<DatePickerTextField> {
     return Consumer<HomeProvider>(
       builder: (context, provider, child) {
         final selectedDate = provider.selectedDate;
-        final dateText = selectedDate != null ? DateFormat('dd MMM yyyy').format(selectedDate) : 'Select Date';
+        final dateText = selectedDate != null
+            ? DateFormat('dd MMM yyyy, hh:mm a').format(selectedDate)
+            : 'Select Date & Time';
+
         return TextField(
           controller: TextEditingController(text: dateText),
           readOnly: true,
-          decoration: InputDecoration(hintText: 'Select Date', suffixIcon: Icon(Icons.calendar_today)),
+          decoration: const InputDecoration(hintText: 'Select Date & Time', suffixIcon: Icon(Icons.calendar_today)),
           onTap: () => _selectDate(context),
         );
       },
